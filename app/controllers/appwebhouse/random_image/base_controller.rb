@@ -4,7 +4,7 @@ module Appwebhouse
       def show
         catalog_name = params[:catalog_name].to_sym
 
-        image = Appwebhouse::RandomImage.random_image(catalog_name)
+        image = Appwebhouse::RandomImage.find_catalog(catalog_name).random_image
 
         send_file image.path, disposition: "inline"
       end
